@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const DeleteGuestForm = () => {
   const [email, setEmail] = useState('');
+  const navigate = useNavigate();
 
   const handleDeleteGuest = async () => {
     try {
@@ -14,22 +16,25 @@ const DeleteGuestForm = () => {
   };
 
   return (
-    <div>
-      <h2>Eliminar Invitado</h2>
-      <form>
-        {/* Campo del formulario para ingresar el correo electrónico del invitado a eliminar */}
-        <input
-          type="email"
-          placeholder="Email del Invitado a Eliminar"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        {/* Botón para eliminar invitado */}
-        <button type="button" onClick={handleDeleteGuest}>
-          Eliminar Invitado
-        </button>
-      </form>
-    </div>
+    <div className="form-container">
+          <h2>Eliminar Invitado</h2>
+          <label className="form-label">Email del Invitado:</label>
+          <input
+            type="email"
+            className="form-input"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button type="button" className="form-button" onClick={handleDeleteGuest}>
+            Eliminar Invitado
+          </button>
+          <button type="button" className="form-button" onClick={() => navigate('/')}>
+            Pagina principal
+          </button>
+          <button type="button" className="form-button" onClick={() => navigate('/list')}>
+            Lista invitados
+          </button>
+        </div>
   );
 };
 

@@ -1,5 +1,6 @@
-// AddGuestForm.js
+
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const AddGuestForm = () => {
@@ -7,6 +8,7 @@ const AddGuestForm = () => {
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
   const [birthDate, setBirthDate] = useState('');
+  const navigate = useNavigate();
 
   const handleAddGuest = async () => {
     try{
@@ -17,31 +19,60 @@ const AddGuestForm = () => {
             surname: surname,
             bornDate: parsedBirthDate
         });
-        console.log('Invitado añadido:', response.data);
-        setName('');
-        setSurname('');
-        setEmail('');
-        setBirthDate('');
+
+            setName('');
+            setSurname('');
+            setEmail('');
+            setBirthDate('');
+
     }catch(error){
         console.log('Error al añadir invitado:',error);
     }
 
   };
-
   return (
-    <div>
-      <h2>Añadir Invitado</h2>
-      <form>
-        {/* Campos del formulario */}
-        <input type="text" placeholder="Nombre" value={name} onChange={(e) => setName(e.target.value)} />
-        <input type="text" placeholder="Apellido" value={surname} onChange={(e) => setSurname(e.target.value)} />
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input type="text" placeholder="Fecha de Nacimiento" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} />
-        {/* Botón para añadir invitado */}
-        <button type="button" onClick={handleAddGuest}>Añadir Invitado</button>
-      </form>
-    </div>
-  );
-};
+      <div className="form-container">
+        <h2>Añadir Invitado</h2>
+        <label className="form-label">Nombre:</label>
+        <input
+          type="text"
+          className="form-input"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <label className="form-label">Apellido:</label>
+        <input
+          type="text"
+          className="form-input"
+          value={surname}
+          onChange={(e) => setSurname(e.target.value)}
+        />
+        <label className="form-label">Email:</label>
+        <input
+          type="email"
+          className="form-input"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <label className="form-label">Fecha de Nacimiento:</label>
+        <input
+          type="text"
+          className="form-input"
+          value={birthDate}
+          onChange={(e) => setBirthDate(e.target.value)}
+        />
+        <button type="button" className="form-button" onClick={handleAddGuest}>
+          Añadir Invitado
+        </button>
+        <button type="button" className="form-button" onClick={() => navigate('/')}>
+               Pagina principal
+        </button>
+        <button type="button" className="form-button" onClick={() => navigate('/modify')}>
+               Modificar invitado
+        </button>
 
+      </div>
+
+    );
+  };
 export default AddGuestForm;
