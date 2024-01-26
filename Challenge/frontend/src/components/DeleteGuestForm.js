@@ -8,7 +8,6 @@ const DeleteGuestForm = () => {
     try {
       await axios.delete(`http://localhost:8080/guests/${email}`);
       console.log('Invitado eliminado exitosamente');
-      // Puedes agregar lógica adicional después de eliminar el invitado, si es necesario
     } catch (error) {
       console.log('Error al eliminar invitado:', error);
     }

@@ -33,7 +33,7 @@ const GuestsForm = () => {
       <ul>
         {guests.map((guest) => (
           <li key={guest.mail}>
-            {guest.name} {guest.surname} - {guest.mail}
+            {guest.name} {guest.surname} - {guest.mail}  - {guest.bornDate}
           </li>
         ))}
       </ul>

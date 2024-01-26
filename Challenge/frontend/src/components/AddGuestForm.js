@@ -10,13 +10,18 @@ const AddGuestForm = () => {
 
   const handleAddGuest = async () => {
     try{
+        const parsedBirthDate = parseInt(birthDate,10);
         const response = await axios.post('http://localhost:8080/guests', {
             mail: email,
             name: name,
             surname: surname,
-            bornDate: birthDate
+            bornDate: parsedBirthDate
         });
         console.log('Invitado añadido:', response.data);
+        setName('');
+        setSurname('');
+        setEmail('');
+        setBirthDate('');
     }catch(error){
         console.log('Error al añadir invitado:',error);
     }
@@ -31,7 +36,7 @@ const AddGuestForm = () => {
         <input type="text" placeholder="Nombre" value={name} onChange={(e) => setName(e.target.value)} />
         <input type="text" placeholder="Apellido" value={surname} onChange={(e) => setSurname(e.target.value)} />
         <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <input type="date" placeholder="Fecha de Nacimiento" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} />
+        <input type="text" placeholder="Fecha de Nacimiento" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} />
         {/* Botón para añadir invitado */}
         <button type="button" onClick={handleAddGuest}>Añadir Invitado</button>
       </form>

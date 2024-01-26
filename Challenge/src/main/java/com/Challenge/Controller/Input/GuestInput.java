@@ -3,9 +3,11 @@ package com.Challenge.Controller.Input;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 @Data
+@NoArgsConstructor
 
 public class GuestInput {
     @NotNull(message = "Mail cannot be null")

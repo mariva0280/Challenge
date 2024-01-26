@@ -4,9 +4,11 @@ import com.Challenge.Domain.Guests;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 @Data
+@NoArgsConstructor
 
 public class GuestOutput {
     @NotNull(message = "Mail cannot be null")
@@ -18,8 +20,6 @@ public class GuestOutput {
     @NotNull(message = "Surname cannot be null")
     @NotEmpty(message = "Surname cannot be empty")
     private String surname;
-
-
     private int bornDate;
 
     public GuestOutput(String mail, String name, String surname, int bornDate) {
