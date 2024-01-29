@@ -28,6 +28,11 @@ const GuestsForm = () => {
     fetchGuests();
   }, []);
 
+   const validGuests = guests.filter(
+      (guest) =>
+        guest.name && guest.surname && guest.mail && guest.bornDate !== undefined
+    );
+
   return (
     <div className="list-container">
           <h2>Lista de Invitados</h2>
@@ -38,10 +43,10 @@ const GuestsForm = () => {
              Pagina principal
           </button>
           <ul>
-            {guests.map((guest) => (
-              <li key={guest.mail} className="list-item">
-                {guest.name} {guest.surname} - {guest.mail}
-              </li>
+            {validGuests.map((guest) => (
+                <li key={guest.mail} className="list-item">
+                    {guest.name} {guest.surname} - {guest.mail}  -  {guest.bornDate}
+                </li>
             ))}
           </ul>
         </div>

@@ -24,7 +24,7 @@
 }
 
 .form-button {
-  background-color: #FF4500;
+  background-color: #82CEE3;
   color: white;
   padding: 12px 20px;
   text-align: center;
@@ -38,5 +38,5 @@
 }
 
 .form-button:hover {
-  background-color: #D93200;
+  background-color: #4CAF50;
 }

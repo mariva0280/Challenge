@@ -10,22 +10,22 @@ const HomePage = () => {
         <ul>
           <li>
             <Link to="/add">
-              <button>Añadir Invitados</button>
+              <button> Agregar invitado </button>
             </Link>
           </li>
           <li>
             <Link to="/modify">
-              <button>Modificar Invitado</button>
+              <button> Modificar invitado </button>
             </Link>
           </li>
           <li>
             <Link to="/delete">
-              <button>Eliminar Invitado</button>
+              <button> Eliminar invitado </button>
             </Link>
           </li>
           <li>
             <Link to="/list">
-              <button>Lista Invitados</button>
+              <button> Lista de invitados </button>
             </Link>
           </li>
         </ul>

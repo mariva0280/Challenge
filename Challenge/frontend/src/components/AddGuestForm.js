@@ -62,7 +62,7 @@ const AddGuestForm = () => {
           onChange={(e) => setBirthDate(e.target.value)}
         />
         <button type="button" className="form-button" onClick={handleAddGuest}>
-          Añadir Invitado
+          Agregar invitado
         </button>
         <button type="button" className="form-button" onClick={() => navigate('/')}>
                Pagina principal

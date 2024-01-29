@@ -20,7 +20,12 @@ const ModifyGuestForm = () => {
         mail: email,
         bornDate: parsedBirthDate
       });
-      console.log('Invitado modificado:', response.data);
+        setName('');
+        setSurname('');
+        setEmail('');
+        setBirthDate('');
+
+      //console.log('Invitado modificado:', response.data);
     } catch (error) {
       console.log('Error al modificar invitado:', error);
     }
@@ -58,13 +63,13 @@ const ModifyGuestForm = () => {
             onChange={(e) => setBirthDate(e.target.value)}
           />
           <button type="button" className="form-button" onClick={handleModifyGuest}>
-              Modificar Invitado
+              Modificar invitado
           </button>
           <button type="button" className="form-button" onClick={() => navigate('/')}>
                Pagina principal
           </button>
           <button type="button" className="form-button" onClick={() => navigate('/add')}>
-                Añadir invitado
+                Agregar invitado
           </button>
           <button type="button" className="form-button" onClick={() => navigate('/delete')}>
                 Eliminar invitado

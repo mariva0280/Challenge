@@ -9,7 +9,8 @@ const DeleteGuestForm = () => {
   const handleDeleteGuest = async () => {
     try {
       await axios.delete(`http://localhost:8080/guests/${email}`);
-      console.log('Invitado eliminado exitosamente');
+      setEmail('');
+      //console.log('Invitado eliminado exitosamente');
     } catch (error) {
       console.log('Error al eliminar invitado:', error);
     }
@@ -26,13 +27,13 @@ const DeleteGuestForm = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
           <button type="button" className="form-button" onClick={handleDeleteGuest}>
-            Eliminar Invitado
+            Eliminar invitado
           </button>
           <button type="button" className="form-button" onClick={() => navigate('/')}>
             Pagina principal
           </button>
           <button type="button" className="form-button" onClick={() => navigate('/list')}>
-            Lista invitados
+            Lista de invitados
           </button>
         </div>
   );
